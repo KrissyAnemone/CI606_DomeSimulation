@@ -12,6 +12,7 @@ public class ZF_NPC_Spawner : MonoBehaviour
     [SerializeField] GameObject NpcParent;
     [SerializeField] int NumNpcs = 5;
     [SerializeField] int MaxGroupSize = 4;
+    [SerializeField] float StagedEntryTime = 10;
 
     // Internal Variables
     private int npcCount = 0; // Number of NPCs currently spawned
@@ -21,6 +22,11 @@ public class ZF_NPC_Spawner : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
+    {
+        Invoke(nameof(StartSpawning), StagedEntryTime);
+    }
+
+    void StartSpawning()
     {
         npcList = new List<ZF_NPC_Pathfinding>();
 
@@ -44,10 +50,10 @@ public class ZF_NPC_Spawner : MonoBehaviour
     Vector3 GetSpawnPosition()
     {
         return new Vector3(
-        Random.Range(SpawnVolume.bounds.min.x, SpawnVolume.bounds.max.x),
-        Random.Range(SpawnVolume.bounds.min.y, SpawnVolume.bounds.max.y),
-        Random.Range(SpawnVolume.bounds.min.z, SpawnVolume.bounds.max.z)
-    );
+            Random.Range(SpawnVolume.bounds.min.x, SpawnVolume.bounds.max.x),
+            Random.Range(SpawnVolume.bounds.min.y, SpawnVolume.bounds.max.y),
+            Random.Range(SpawnVolume.bounds.min.z, SpawnVolume.bounds.max.z)
+        );
     }
 
     ZF_Goal GetRandomGoal()

@@ -1446,6 +1446,7 @@ MonoBehaviour:
   NpcParent: {fileID: 1519010943}
   NumNpcs: 15
   MaxGroupSize: 4
+  StagedEntryTime: 1
 --- !u!1 &1519010943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,6 +1518,7 @@ MonoBehaviour:
   NpcParent: {fileID: 1519010943}
   NumNpcs: 35
   MaxGroupSize: 4
+  StagedEntryTime: 10
 --- !u!65 &1649149801
 BoxCollider:
   m_ObjectHideFlags: 0
