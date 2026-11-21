@@ -6,20 +6,22 @@ using System.Linq;
 
 public class ZF_NPC_Pathfinding : MonoBehaviour
 {
-    ZF_Goal Goal;
-    NavMeshAgent agent;
+    public ZF_Goal goal;
+    public NavMeshAgent agent;
     public int npcID;
     public List<ZF_NPC_Pathfinding> npcGroup;
     public bool inGroup;
     public GameObject leader;
 
     private NavMeshAgent leaderAgent;
+    
 
     // Editor Variables
     [Header("Editor Variables")]
     [SerializeField] float startSpeed;
     [SerializeField] float LeaderWaitSpeedReduction = 2;
     [SerializeField] float FollowerCatchupSpeedIncrease = 3;
+    public bool isHandicapped;
 
     private void Awake()
     {
@@ -30,14 +32,19 @@ public class ZF_NPC_Pathfinding : MonoBehaviour
     public void SetGoal(GameObject newGoal) // By GameObject
     {
         if (!agent) agent = GetComponent<NavMeshAgent>();
-        if (Goal) agent.SetDestination(newGoal.transform.position);
+        if (goal) agent.SetDestination(newGoal.transform.position);
     }
 
     public void SetGoal(ZF_Goal newGoal) // By Goal Script
     {
         if (!agent) agent = GetComponent<NavMeshAgent>();
-        Goal = newGoal;
-        if (Goal) agent.SetDestination(Goal.transform.position);
+        goal = newGoal;
+        //if (goal) agent.SetDestination(goal.transform.position);
+    }
+
+    public void SetGoal(Vector3 newGoal) // By position{
+    {
+        agent.SetDestination(newGoal);
     }
     
     private void Update()
@@ -77,6 +84,8 @@ public class ZF_NPC_Pathfinding : MonoBehaviour
             npc.leader = leader;
             npc.leaderAgent = leaderAgent;
         }
+
+
     }
 
     public void AddToGroup(ZF_NPC_Pathfinding addAI)
@@ -95,7 +104,7 @@ public class ZF_NPC_Pathfinding : MonoBehaviour
         foreach (ZF_NPC_Pathfinding npc in npcGroup)
         {
             if (npc.gameObject != leader) npc.agent.speed = leader.GetComponent<ZF_NPC_Pathfinding>().startSpeed + FollowerCatchupSpeedIncrease;
-            Debug.Log(leader.GetComponent<ZF_NPC_Pathfinding>().startSpeed);
+            //Debug.Log(leader.GetComponent<ZF_NPC_Pathfinding>().startSpeed);
         }
     }
 
@@ -114,4 +123,14 @@ public class ZF_NPC_Pathfinding : MonoBehaviour
 
         return furthest > maxDistance;
     }
+
+    public void SetFirstDestination()
+    {
+        if (leader == gameObject || !inGroup) // If alone or leader
+        {
+            SetGoal(goal.GetFirstWaypoint(this));
+        }
+    }
+
+
 }

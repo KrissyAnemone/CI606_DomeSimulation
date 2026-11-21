@@ -126,4 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZF_Goal
   Normal_Waypoints: []
-  Accessability_Waypoints: []
+  Accessibility_Waypoints: []
+  LayerToMask:
+    serializedVersion: 2
+    m_Bits: 256

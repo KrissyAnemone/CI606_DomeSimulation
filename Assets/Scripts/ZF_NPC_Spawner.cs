@@ -91,19 +91,35 @@ public class ZF_NPC_Spawner : MonoBehaviour
         newNPC.transform.SetParent(NpcParent.transform); // Parent NPC to npcParent
         npcList.Add(newAI); // Add NPC to list
 
-        newAI.SetGoal(GetRandomGoal()); // Set NPC Goal
-
         // Set NPC ID
         newAI.npcID = npcCount;
         npcCount++;
 
-        // Update Group
+
+        // Set Goal
+        if (currentGroupSize == 1 || currentGroupSize == nextGroupSize) // If start of group, set random goal
+        {
+            newAI.SetGoal(GetRandomGoal()); // Random goal
+        }
+        else // If not start of group then set same goal as last
+        {
+            newAI.SetGoal(npcList[npcCount - 2].goal); // Same goal
+        }
+
+
+        // Update Group (this decrements nextGroupSize)
         GroupNPC(newAI);
 
         if (nextGroupSize == 0 && currentGroupSize > 1)
         {
             newAI.TriggerGroupLeaderCatchup();
             //newAI.Invoke(nameof(newAI.TriggerGroupLeaderCatchup), 1);
+        }
+
+        if (nextGroupSize == 0)
+        {
+            if (newAI.inGroup) newAI.leader.GetComponent<ZF_NPC_Pathfinding>().SetFirstDestination();
+            else newAI.SetFirstDestination();
         }
     }
 

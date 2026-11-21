@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 6320777477873283692}
   - component: {fileID: 1850609948526922921}
   - component: {fileID: 2292984325522943708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NPC2
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1721305353015311944}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Speed: 4
   m_Acceleration: 20
   avoidancePriority: 50
@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec00fdce217ee249850fce981dc2e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZF_NPC_Pathfinding
+  goal: {fileID: 0}
+  agent: {fileID: 0}
   npcID: 0
   npcGroup: []
   inGroup: 0
@@ -157,3 +159,4 @@ MonoBehaviour:
   startSpeed: 2
   LeaderWaitSpeedReduction: 1
   FollowerCatchupSpeedIncrease: 0.5
+  isHandicapped: 1
