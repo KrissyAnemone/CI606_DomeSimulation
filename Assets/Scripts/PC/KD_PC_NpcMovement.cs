@@ -30,7 +30,7 @@ public class KD_PC_NpcMovement : MonoBehaviour
             npcPathfinding.enabled = true;
             npcMovement.enabled = false;
 
-            Instantiate(pcPrefab);
+            Instantiate(pcPrefab, transform.position, transform.rotation);
         }
     }
 }
