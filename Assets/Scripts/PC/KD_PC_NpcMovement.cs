@@ -23,6 +23,9 @@ public class KD_PC_NpcMovement : MonoBehaviour
         speed = npcPathfinding.agent.speed;
 
         npcCam = GetComponentInChildren<Camera>();
+        
+        if (npcCam != null)
+            npcCam.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

@@ -169,13 +169,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721305353015311944}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 321cdb6c9fbef7f429e540494483fbfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KD_PC_NpcMovement
   pcPrefab: {fileID: 2726179342728955622, guid: 3916653663c20b546baef35fe1f0a4ed, type: 3}
-  npcCam: {fileID: 0}
+  npcCam: {fileID: 706125310209698871}
   speed: 0
 --- !u!1 &3929060315537935978
 GameObject:

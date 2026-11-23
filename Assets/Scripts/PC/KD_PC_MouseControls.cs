@@ -19,13 +19,12 @@ public class KD_PC_MouseControls : MonoBehaviour
 
                     transform.position = npc.transform.position + Vector3.up * possessionHeight;
 
-                    Camera npcCamera = npc.GetComponentInChildren<Camera>(true);
                     KD_PC_NpcMovement npcMovement = npc.GetComponent<KD_PC_NpcMovement>();
 
-                    if (npcCamera != null)
-                        npcCamera.gameObject.SetActive(true);
                     if (npcMovement != null)
                         npcMovement.enabled = true;
+                    if (npcMovement.npcCam != null)
+                        npcMovement.npcCam.gameObject.SetActive(true);
 
                     Destroy(gameObject);
                 }
