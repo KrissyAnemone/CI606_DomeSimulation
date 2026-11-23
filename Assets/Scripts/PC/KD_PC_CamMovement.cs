@@ -19,7 +19,7 @@ public class KD_PC_CamMovement : MonoBehaviour
         Cursor.visible = false;
 
         moveAction = new InputAction("Move", InputActionType.Value);
-        moveAction.AddCompositeBinding("2DVector").With("Up", "<Keyboard>/w").With("Down", "<Keyboard>/s");
+        moveAction.AddCompositeBinding("2DVector").With("Up", "<Keyboard>/w").With("Down", "<Keyboard>/s").With("Left", "<Keyboard>/a").With("Right", "<Keyboard>/d");
 
         lookAction = new InputAction("Look", InputActionType.Value, "<Mouse>/delta");
     }
