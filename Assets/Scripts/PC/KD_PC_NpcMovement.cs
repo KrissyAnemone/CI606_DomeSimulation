@@ -17,25 +17,24 @@ public class KD_PC_NpcMovement : MonoBehaviour
         npcPathfinding = GetComponent<ZF_NPC_Pathfinding>();
         npcMovement = GetComponent<KD_PC_NpcMovement>();
 
-        if (npcPathfinding != null)
-            npcPathfinding.enabled = false;
-
         speed = npcPathfinding.agent.speed;
 
+        npcPathfinding.enabled = false;
+        npcPathfinding.agent.enabled = false;
+
         npcCam = GetComponentInChildren<Camera>();
-        
-        if (npcCam != null)
-            npcCam.gameObject.SetActive(false);
     }
+
 
     // Update is called once per frame
     void Update()
     {
         if (Mouse.current.rightButton.wasPressedThisFrame)
         {
-            npcCam.gameObject.SetActive(false);
+            npcCam.enabled = false;
             npcPathfinding.enabled = true;
             npcMovement.enabled = false;
+            npcPathfinding.agent.enabled = true;
 
             Instantiate(pcPrefab, transform.position, transform.rotation);
         }

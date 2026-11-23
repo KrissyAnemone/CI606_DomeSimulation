@@ -22,9 +22,14 @@ public class KD_PC_MouseControls : MonoBehaviour
                     KD_PC_NpcMovement npcMovement = npc.GetComponent<KD_PC_NpcMovement>();
 
                     if (npcMovement != null)
+                    {
                         npcMovement.enabled = true;
-                    if (npcMovement.npcCam != null)
-                        npcMovement.npcCam.gameObject.SetActive(true);
+                        if (npcMovement.npcCam != null)
+                        {
+                            Debug.Log("Hello");
+                            npcMovement.npcCam.enabled = true;
+                        }
+                    }
 
                     Destroy(gameObject);
                 }
