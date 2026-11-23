@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KD_PC_NpcMovement
   pcPrefab: {fileID: 3786804422228023599, guid: 3916653663c20b546baef35fe1f0a4ed, type: 3}
+  npcCam: {fileID: 0}
 --- !u!1 &3042201082292793957
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ using System.Linq;
 public class ZF_NPC_Pathfinding : MonoBehaviour
 {
     ZF_Goal Goal;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     public int npcID;
     public List<ZF_NPC_Pathfinding> npcGroup;
     public bool inGroup;

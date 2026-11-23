@@ -6,6 +6,8 @@ public class KD_PC_NpcMovement : MonoBehaviour
     public GameObject pcPrefab;
     public Camera npcCam;
 
+    public float speed;
+
     private ZF_NPC_Pathfinding npcPathfinding;
     private KD_PC_NpcMovement npcMovement;
 
@@ -17,6 +19,8 @@ public class KD_PC_NpcMovement : MonoBehaviour
 
         if (npcPathfinding != null)
             npcPathfinding.enabled = false;
+
+        speed = npcPathfinding.agent.speed;
 
         npcCam = GetComponentInChildren<Camera>();
     }
