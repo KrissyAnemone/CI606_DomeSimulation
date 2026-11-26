@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5843876690098322550}
   - component: {fileID: 3072701539895511181}
   - component: {fileID: 6320777477873283692}
+  - component: {fileID: 4032643914754174559}
   - component: {fileID: 1850609948526922921}
   - component: {fileID: 2292984325522943708}
   - component: {fileID: 4550771056401929552}
@@ -108,7 +109,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -118,6 +119,33 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &4032643914754174559
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721305353015311944}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!195 &1850609948526922921
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -176,7 +204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KD_PC_NpcMovement
   pcPrefab: {fileID: 2726179342728955622, guid: 3916653663c20b546baef35fe1f0a4ed, type: 3}
   npcCam: {fileID: 706125310209698871}
-  speed: 0
+  rb: {fileID: 4032643914754174559}
+  moveSpeed: 0
+  lookSensitivity: 0.15
 --- !u!1 &3929060315537935978
 GameObject:
   m_ObjectHideFlags: 0
